@@ -449,3 +449,76 @@ img { max-width: 100%; display: block; }
   padding: 24px;
   font-size: 13px;
 }
+
+/* ===== Hamburger Menu ===== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 200;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ハンバーガーをクリックしたときに×に変形 */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* ===== モバイル時のアコーディオンナビ ===== */
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .site-header nav#siteNav {
+    display: none;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .site-header nav#siteNav.open {
+    display: block;
+    max-height: 500px; /* アコーディオンで開く高さ */
+  }
+
+  .site-header nav#siteNav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 0 16px;
+  }
+
+  .site-header nav#siteNav ul li {
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .site-header nav#siteNav ul li a {
+    display: block;
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+  }
+}
