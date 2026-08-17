@@ -114,6 +114,10 @@ img { max-width: 100%; display: block; }
 }
 
 .sub-title.small { font-size: 16px; margin-top: 24px; }
+.section.alt .sub-title {
+  display: block;
+  width: fit-content;
+}
 
 .mt { margin-top: 40px; }
 
