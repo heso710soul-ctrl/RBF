@@ -241,13 +241,12 @@ img { max-width: 100%; display: block; }
 /* ===== Ecosystem Diagram ===== */
 .ecosystem-diagram {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 140px 1fr;
   grid-template-rows: auto auto;
   gap: 24px;
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto 40px;
   align-items: center;
+  max-width: 900px;
+  margin: 0 auto 40px;
 }
 
 .node {
@@ -256,16 +255,20 @@ img { max-width: 100%; display: block; }
   padding: 20px;
   border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  height: 100%;
 }
 
 .node h4 { color: #c0392b; margin-bottom: 8px; }
 .node p { font-size: 13px; color: #555; }
 
+.node.top-left     { grid-column: 1; grid-row: 1; }
+.node.top-right     { grid-column: 3; grid-row: 1; }
+.node.bottom-left   { grid-column: 1; grid-row: 2; }
+.node.bottom-right  { grid-column: 3; grid-row: 2; }
+
 .node-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  grid-column: 2;
+  grid-row: 1 / 3;   /* 縦2行分を使って中央に配置 */
   background: #111;
   color: #fff;
   width: 100px;
@@ -277,16 +280,32 @@ img { max-width: 100%; display: block; }
   flex-direction: column;
   font-weight: 800;
   font-size: 22px;
-  z-index: 2;
+  margin: 0 auto;
 }
 
 .node-center small { font-size: 10px; font-weight: 400; letter-spacing: 1px; }
 
+/* ===== スマホ幅では縦積みに ===== */
 @media (max-width: 700px) {
-  .ecosystem-diagram { grid-template-columns: 1fr; }
-  .node-center { position: static; margin: 16px auto; transform: none; }
-}
+  .ecosystem-diagram {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
 
+  .node.top-left,
+  .node.top-right,
+  .node.bottom-left,
+  .node.bottom-right {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .node-center {
+    grid-column: 1;
+    grid-row: auto;
+    margin: 16px auto;
+  }
+}
 /* ===== Roadmap ===== */
 .roadmap-steps {
   display: flex;
