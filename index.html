@@ -11,7 +11,15 @@
 <header class="site-header">
   <div class="header-inner">
     <div class="logo">RB <span>FIELD</span></div>
-    <nav>
+
+    <!-- ハンバーガーボタン（追加） -->
+    <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="siteNav">
       <ul>
         <li><a href="#about">会社概要</a></li>
         <li><a href="#ecosystem">収益構造</a></li>
@@ -26,7 +34,7 @@
   </div>
 </header>
 
-<section class="hero">
+  <section class="hero">
   <div class="hero-inner">
     <p class="tagline">地域密着型フードフェスを起点に、地域ににぎわいと交流を生み出す</p>
     <h1>ReBURST FIELD<br>事業計画</h1>
@@ -443,5 +451,6 @@
   <p>&copy; 2025 ReBURST FIELD（RB FIELD）. All rights reserved.</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
