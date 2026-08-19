@@ -546,10 +546,3 @@ img { max-width: 100%; display: block; }
     flex-wrap: wrap;
   }
 }
-
-/* ===== Header Logo Image ===== */
-.logo-img {
-  height: 40px;
-  width: auto;
-  display: block;
-}
